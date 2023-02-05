@@ -378,6 +378,26 @@ class Transputer(
     val stdout: PrintWriter,
     val stderr: PrintWriter
 ) {
+
+
+  final val registers : Registers = new Registers()
+  final private val sreg : StatusRegister = new StatusRegister()
+  final private val FptrReg = new Array[Int](2)
+  final private val BptrReg = new Array[Int](2)
+  private var Ereg = 0
+  final private val ClockReg = new Array[Int](2)
+  final private var mem: ArrayBuffer[Byte] = null
+  var programEndPtr = 0
+  // It seems that this is actually a memory
+  // Location in the reserved memory space
+  // public int TPtrLoc[2];
+  final private val TNextReg = new Array[Int](2)
+  final private val TEnabled = new Array[Boolean](2)
+  private var BMbuffer = 0
+  final val inputLinks = new Array[InputLink](TransputerConstants.IN_PORTS)
+  final private val outputLink : OutputLink = new OutputLink()
+  final val debuggerState : DebuggerRecordedState = new DebuggerRecordedState()
+
   mem = new ArrayBuffer[Byte](TransputerConstants.MEMSIZE)
   FptrReg(0) = TransputerConstants.NOTPROCESS_P
   FptrReg(1) = TransputerConstants.NOTPROCESS_P
@@ -409,23 +429,7 @@ class Transputer(
   outputLink.ack = TransputerConstants.NOIO
   outputLink.FptrReg = TransputerConstants.NOTPROCESS_P
   outputLink.BptrReg = TransputerConstants.NOTPROCESS_P
-  final val registers : Registers = new Registers()
-  final private val sreg : StatusRegister = new StatusRegister()
-  final private val FptrReg = new Array[Int](2)
-  final private val BptrReg = new Array[Int](2)
-  private var Ereg = 0
-  final private val ClockReg = new Array[Int](2)
-  final private var mem: ArrayBuffer[Byte] = null
-  var programEndPtr = 0
-  // It seems that this is actually a memory
-  // Location in the reserved memory space
-  // public int TPtrLoc[2];
-  final private val TNextReg = new Array[Int](2)
-  final private val TEnabled = new Array[Boolean](2)
-  private var BMbuffer = 0
-  final val inputLinks = new Array[InputLink](TransputerConstants.IN_PORTS)
-  final private val outputLink : OutputLink = new OutputLink()
-  final val debuggerState : DebuggerRecordedState = new DebuggerRecordedState()
+
 
   /** Reads a word from an array in transputer memory
     *
