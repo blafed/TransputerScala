@@ -1,3 +1,5 @@
+//runner where the missing two pacakages are not imported
+//running using this file gives the same output of two different files
 import uk.co.transputersystems.transputer.simulator.{Transputer, TransputerConstants}
 
 import java.io.{File, FileWriter, PrintWriter}
@@ -10,7 +12,7 @@ run(Array.empty[String])
 
   @throws[Exception]
   def run(args: Array[String]): Unit = {
-    val files = Array[File]( new File("hello.btl"))
+    val files = Array[File]( new File("hello.btl"), new File("hello2.bin"))
 
     val config = SimulatorConfig(false,  null,  null,  null,   files, false)
     var transputers: Array[Transputer] = null

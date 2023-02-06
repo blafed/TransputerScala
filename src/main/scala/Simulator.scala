@@ -1,4 +1,16 @@
+//Full simulator in scala code
+//there is missing two packages to make it run:
+
+//1. joptsimple
+//2. org.antlr.v4
+
+//TODO add the missing packages, uncomment all lines under and use this file as tunner instead of Main.scala
+
+
 //package uk.co.transputersystems.transputer.simulator
+//
+//
+//
 //
 //import java.io.File
 //import java.io.FileWriter
@@ -7,6 +19,11 @@
 //import java.util
 //import java.util.Scanner
 //import java.io.File.pathSeparatorChar
+//import java.util.HashSet
+//
+//
+//
+/////MISSED PACKAGES:
 //import joptsimple.OptionParser
 //import joptsimple.OptionSet
 //import joptsimple.OptionSpec
@@ -14,11 +31,28 @@
 //import org.antlr.v4.runtime.CommonTokenStream
 //import org.antlr.v4.runtime.ConsoleErrorListener
 //import org.antlr.v4.runtime.tree.ParseTree
+//
+//import org.antlr.v4.runtime.BaseErrorListener
+//import org.antlr.v4.runtime.RecognitionException
+//import org.antlr.v4.runtime.Recognizer
+//
+//
+//class ErrorListener extends BaseErrorListener {
+//  var errors = 0
+//
+//  override def syntaxError(recognizer: Recognizer[_, _], offendingSymbol: AnyRef, line: Int, charPositionInLine: Int, msg: String, e: RecognitionException): Unit = {
+//    errors += 1
+//    super.syntaxError(recognizer, offendingSymbol, line, charPositionInLine, msg, e)
+//  }
+//}
+//
+//
 //object Simulator {
 //  private def executeCommand(command: String, transputers: Array[Transputer], output: PrintWriter, errOutput: PrintWriter): CommandResult = {
 //    val commandLexer = new Nothing(new ANTLRInputStream(command))
 //    commandLexer.removeErrorListener(ConsoleErrorListener.INSTANCE)
 //    val tokenStream = new CommonTokenStream(commandLexer)
+//    //unknown
 //    val errorListener = new ErrorListener
 //    val commandParser = new Nothing(tokenStream)
 //    commandParser.addErrorListener(errorListener)

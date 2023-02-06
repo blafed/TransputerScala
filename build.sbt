@@ -26,7 +26,10 @@ version := "1.0"
 // You can define other libraries as dependencies in your build like this:
 
 libraryDependencies += "org.scala-lang.modules" %% "scala-parser-combinators" % "2.1.1"
-libraryDependencies += "org.antlr" %% "antlr4-runtime"% "4.9.3"
+//libraryDependencies += "org.antlr" %% "antlr4-runtime"% "4.9.3"
+
+//addSbtPlugin("com.simplytyped" % "sbt-antlr4" % "0.8.3")
+
 
 //libraryDependencies += "net.sf.jopt-simple" %% "jopt-simple"% "6.0-alpha-3"
 
